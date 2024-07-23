@@ -110,7 +110,7 @@ function App() {
         type: "NOTIFICATIONS_REQUEST",
       });
       const { data } = await axios.get(
-        `http://34.118.225.254:81/getAllNotification`,
+        `http://34.124.241.174:81/getAllNotification`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -181,7 +181,7 @@ function App() {
   const getRoomMess = async () => {
     try {
       dispatchRoomMess({ type: "ROOM_MESS_REQUEST" });
-      const { data } = await axios.get(`http://34.118.225.254:81/getRoomMess`, {
+      const { data } = await axios.get(`http://34.124.241.174:81/getRoomMess`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -199,7 +199,7 @@ function App() {
     try {
       dispatchPostGroups({ type: "POST_GROUPS_REQUEST" });
       const { data } = await axios.get(
-        `http://34.118.225.254:81/getpostgroups`,
+        `http://34.124.241.174:81/getpostgroups`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -361,7 +361,7 @@ function App() {
       dispatch({
         type: "POSTS_REQUEST",
       });
-      const { data } = await axios.get(`http://34.118.225.254:81/getAllposts`, {
+      const { data } = await axios.get(`http://34.124.241.174:81/getAllposts`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
