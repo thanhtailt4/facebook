@@ -1,9 +1,8 @@
-import { Form, Formik } from "formik";
-import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import LoginInput from "../../components/inputs/loginInput";
-import * as Yup from "yup";
 import axios from "axios";
+import { Form, Formik } from "formik";
+import { Link, useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import LoginInput from "../../components/inputs/loginInput";
 export default function ChangePassword({
   password,
   setPassword,
@@ -32,7 +31,7 @@ export default function ChangePassword({
   const changePassword = async () => {
     try {
       setLoading(true);
-      await axios.post(`http://35.194.224.95:81/changePassword`, {
+      await axios.post(`http://backend-service:8000/changePassword`, {
         email,
         password,
       });

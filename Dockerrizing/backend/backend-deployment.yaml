@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend-image
-        image: gcr.io/macro-topic-406418/backend-image:9
+        image: gcr.io/eighth-server-430311-v6/backend-image:latest
         ports:
         - containerPort: 8000
 

@@ -1,19 +1,17 @@
-import { Form, Formik } from "formik";
-import ChoosePrivacy from "../../components/inputs/createGroupInput/choosePrivacy";
-import GroupInput from "../../components/inputs/createGroupInput";
-import * as Yup from "yup";
-import DotLoader from "react-spinners/DotLoader";
 import axios from "axios";
+import { Form, Formik } from "formik";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import { Search } from "../../svg";
-import { useEffect, useReducer, useState } from "react";
-import SearchInviteFriends from "../../components/inputs/createGroupInput/searchInviteFriends";
-import { searchFriends } from "../../functions/user";
+import DotLoader from "react-spinners/DotLoader";
+import * as Yup from "yup";
+import GroupInput from "../../components/inputs/createGroupInput";
+import ChoosePrivacy from "../../components/inputs/createGroupInput/choosePrivacy";
 import InviteFriends from "../../components/inputs/createGroupInput/invite_friends";
+import SearchInviteFriends from "../../components/inputs/createGroupInput/searchInviteFriends";
 import { sendRequest } from "../../functions/group";
 import { createNotification } from "../../functions/notification";
+import { searchFriends } from "../../functions/user";
 export default function CreateGroup({ setVisible, dataFriend, socket }) {
   const { user } = useSelector((user) => ({ ...user }));
   const dispatch = useDispatch();
@@ -120,7 +118,7 @@ export default function CreateGroup({ setVisible, dataFriend, socket }) {
   const groupSubmit = async () => {
     try {
       const { data } = await axios.post(
-        `http://35.194.224.95:81/creatGroup`,
+        `http://backend-service:8000/creatGroup`,
         {
           group_name,
           privacy,

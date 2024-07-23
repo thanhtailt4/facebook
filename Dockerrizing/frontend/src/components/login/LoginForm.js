@@ -1,13 +1,12 @@
-import { Formik, Form } from "formik";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Form, Formik } from "formik";
+import Cookies from "js-cookie";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import DotLoader from "react-spinners/DotLoader";
 import * as Yup from "yup";
 import LoginInput from "../../components/inputs/loginInput";
-import { useState } from "react";
-import DotLoader from "react-spinners/DotLoader";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
 const loginInfos = {
   email: "",
   password: "",
@@ -36,7 +35,7 @@ export default function LoginForm({ setVisible , socket }) {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        `http://35.194.224.95:81/login`,
+        `http://backend-service:8000/login`,
         {
           email,
           password,

@@ -2,7 +2,7 @@ import axios from "axios";
 export const updateprofilePicture = async (url, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/updateProfilePicture`,
+      `http://backend-service:8000/updateProfilePicture`,
       {
         url,
       },
@@ -20,7 +20,7 @@ export const updateprofilePicture = async (url, token) => {
 export const updateCover = async (url, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/updateCover`,
+      `http://backend-service:8000/updateCover`,
       {
         url,
       },
@@ -38,7 +38,7 @@ export const updateCover = async (url, token) => {
 export const addFriend = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/addFriend/${id}`,
+      `http://backend-service:8000/addFriend/${id}`,
       {},
 
       {
@@ -55,7 +55,7 @@ export const addFriend = async (id, token) => {
 export const cancelRequest = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/cancelRequest/${id}`,
+      `http://backend-service:8000/cancelRequest/${id}`,
       {},
 
       {
@@ -90,7 +90,7 @@ export const follow = async (id, token) => {
 export const unfollow = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/unfollow/${id}`,
+      `http://backend-service:8000/unfollow/${id}`,
       {},
 
       {
@@ -107,7 +107,7 @@ export const unfollow = async (id, token) => {
 export const acceptRequest = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/acceptRequest/${id}`,
+      `http://backend-service:8000/acceptRequest/${id}`,
       {},
 
       {
@@ -124,7 +124,7 @@ export const acceptRequest = async (id, token) => {
 export const unfriend = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/unfriend/${id}`,
+      `http://backend-service:8000/unfriend/${id}`,
       {},
 
       {
@@ -141,7 +141,7 @@ export const unfriend = async (id, token) => {
 export const deleteRequest = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/deleteRequest/${id}`,
+      `http://backend-service:8000/deleteRequest/${id}`,
       {},
 
       {
@@ -158,7 +158,7 @@ export const deleteRequest = async (id, token) => {
 export const search = async (searchTerm, token) => {
   try {
     const { data } = await axios.post(
-      `http://35.194.224.95:81/search/${searchTerm}`,
+      `http://backend-service:8000/search/${searchTerm}`,
       {},
 
       {
@@ -176,7 +176,7 @@ export const search = async (searchTerm, token) => {
 export const searchFriends = async (searchTerm, dataFriend, token) => {
   try {
     const { data } = await axios.post(
-      `http://35.194.224.95:81/searchFriends/${searchTerm}`,
+      `http://backend-service:8000/searchFriends/${searchTerm}`,
       { dataFriend },
       {
         headers: {
@@ -193,7 +193,7 @@ export const searchFriends = async (searchTerm, dataFriend, token) => {
 export const searchMembers = async (searchTerm, dataMembers, token) => {
   try {
     const { data } = await axios.post(
-      `http://35.194.224.95:81/searchMembers/${searchTerm}`,
+      `http://backend-service:8000/searchMembers/${searchTerm}`,
       { dataMembers },
       {
         headers: {
@@ -214,7 +214,7 @@ export const searchFriendsByBirthday = async (
 ) => {
   try {
     const { data } = await axios.post(
-      `http://35.194.224.95:81/searchFriendsByBirthday/${searchTerm}`,
+      `http://backend-service:8000/searchFriendsByBirthday/${searchTerm}`,
       { dataByBirthday },
 
       {
@@ -232,7 +232,7 @@ export const searchFriendsByBirthday = async (
 export const addToSearchHistory = async (searchUser, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/addToSearchHistory`,
+      `http://backend-service:8000/addToSearchHistory`,
       { searchUser },
 
       {
@@ -249,7 +249,7 @@ export const addToSearchHistory = async (searchUser, token) => {
 export const getSearchHistory = async (token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/etSearchHistory`,
+      `http://backend-service:8000/etSearchHistory`,
 
       {
         headers: {
@@ -265,7 +265,7 @@ export const getSearchHistory = async (token) => {
 export const removeFromSearch = async (searchUser, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/removeFromSearch`,
+      `http://backend-service:8000/removeFromSearch`,
       { searchUser },
 
       {
@@ -282,7 +282,7 @@ export const removeFromSearch = async (searchUser, token) => {
 export const getFriendsPageInfos = async (idUser, token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/getFriendsPageInfos/${idUser}`,
+      `http://backend-service:8000/getFriendsPageInfos/${idUser}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -298,7 +298,7 @@ export const getFriendsPageInfos = async (idUser, token) => {
 export const getFriendsByBirthday = async (idUser, token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/getFriendsByBirthday/${idUser}`,
+      `http://backend-service:8000/getFriendsByBirthday/${idUser}`,
 
       {
         headers: {
@@ -315,7 +315,7 @@ export const getFriendsByBirthday = async (idUser, token) => {
 export const getUser = async (token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/getUser`,
+      `http://backend-service:8000/getUser`,
 
       {
         headers: {
@@ -332,7 +332,7 @@ export const getUser = async (token) => {
 export const getGroupsJoined = async (token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/getGroupsJoined`,
+      `http://backend-service:8000/getGroupsJoined`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -348,7 +348,7 @@ export const getGroupsJoined = async (token) => {
 export const getdiscoverGroups = async (token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/getdiscoverGroups`,
+      `http://backend-service:8000/getdiscoverGroups`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -364,7 +364,7 @@ export const getdiscoverGroups = async (token) => {
 export const getFriendsNotInGroup = async (idgroup, token) => {
   try {
     const { data } = await axios.get(
-      `http://localhost:8000/getFriendsNotInGroup/${idgroup}`,
+      `http://backend-service:8000/getFriendsNotInGroup/${idgroup}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

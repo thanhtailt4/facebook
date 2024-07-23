@@ -1,12 +1,11 @@
-import { Form, Formik } from "formik";
-import ChoosePrivacy from "../../components/inputs/createGroupInput/choosePrivacy";
-import GroupInput from "../../components/inputs/createGroupInput";
-import * as Yup from "yup";
-import DotLoader from "react-spinners/DotLoader";
 import axios from "axios";
+import { Form, Formik } from "formik";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useReducer, useState } from "react";
+import DotLoader from "react-spinners/DotLoader";
+import * as Yup from "yup";
+import GroupInput from "../../components/inputs/createGroupInput";
 
 export default function CreateRoomMess({ setVisibleCreatRoomMess,socket, dataPageGroup  }) {
   const { user } = useSelector((user) => ({ ...user }));
@@ -72,7 +71,7 @@ export default function CreateRoomMess({ setVisibleCreatRoomMess,socket, dataPag
   const roommessSubmit = async () => {
     try {
       const { data } = await axios.put(
-        `http://35.194.224.95:81/creatRoomMess`,
+        `http://backend-service:8000/creatRoomMess`,
         {
           room_name,
           groupRef: dataPageGroup._id ,

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: socket-image
-        image: gcr.io/macro-topic-406418/socket-image:47
+        image: gcr.io/eighth-server-430311-v6/socket-image:latest
         ports:
         - containerPort: 5000
 

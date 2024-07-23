@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import CreatePost from "../../components/createPost";
@@ -8,8 +10,6 @@ import RightHome from "../../components/home/right";
 import Stories from "../../components/home/stories";
 import ActivateForm from "./ActivateForm";
 import "./style.css";
-import axios from "axios";
-import Cookies from "js-cookie";
 export default function Activate() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export default function Activate() {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        `http://35.194.224.95:81/activate`,
+        `http://backend-service:8000/activate`,
         { token },
         {
           headers: {

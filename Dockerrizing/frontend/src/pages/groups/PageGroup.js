@@ -1,45 +1,43 @@
+import axios from "axios";
 import { useEffect, useReducer, useRef, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import Header from "../../components/header";
-import "./style.css";
-import { Dots, Home, HomeActive, Public } from "../../svg";
-import axios from "axios";
-import { pagegroup } from "../../functions/reducers";
 import CreatePostGroupPopup from "../../components/createPostGroupPopup";
-import Skeleton from "react-loading-skeleton";
-import Media from "./tabs/Media";
-import Detail_Albums_Group from "./tabs/Detail_Albums_Group";
-import PageGroup_Menu from "./PageGroup_Menu";
-import useClickOutside from "../../helpers/clickOutside";
-import About from "../../components/about_group/aboutDetail";
-import Members from "./tabs/Members";
-import Cover_Group from "./Cover_Group";
-import PageGroup_Discussion from "./tabs/PageGroup_Discussion";
+import Header from "../../components/header";
 import {
-  leavegroup,
-  followgroup,
-  unfollowgroup,
-  cancelRequestGroup,
-  joingroup,
-  pendingposts,
-  getusersendinviteasadmin,
-  cancelinviteasadmin,
-  acceptinviteasadmin
+    acceptinviteasadmin,
+    cancelinviteasadmin,
+    cancelRequestGroup,
+    followgroup,
+    getusersendinviteasadmin,
+    joingroup,
+    leavegroup,
+    pendingposts,
+    unfollowgroup
 } from "../../functions/group";
+import { pagegroup } from "../../functions/reducers";
+import { Dots, Home, HomeActive, Public } from "../../svg";
+import Cover_Group from "./Cover_Group";
+import PageGroup_Menu from "./PageGroup_Menu";
+import "./style.css";
+import Detail_Albums_Group from "./tabs/Detail_Albums_Group";
+import Media from "./tabs/Media";
+import Members from "./tabs/Members";
+import PageGroup_Discussion from "./tabs/PageGroup_Discussion";
 
 import InviteMembers from "./InviteMembers";
 
+import AboutDetail from "../../components/about_group/aboutDetail";
+import EditGroup from "../../components/about_group/editGroup";
+import MemberReported from "../../components/about_group/memberReported";
+import MemberRequests from "../../components/about_group/memberRequests";
+import Overview from "../../components/about_group/overview";
+import PendingPosts from "../../components/about_group/pendingPosts";
+import { getReportsToGroup } from "../../functions/report";
+import CreateRoomMess from "./createRoomMess";
 import PageGroup_Menu_Private from "./PageGroup_Menu_Private";
 import PageGroup_Discussion_Preview from "./tabs/PageGroup_Discussion_Preview";
-import AboutDetail from "../../components/about_group/aboutDetail";
-import CreateRoomMess from "./createRoomMess";
-import Overview from "../../components/about_group/overview";
-import MemberReported from "../../components/about_group/memberReported";
-import { getReportsToGroup } from "../../functions/report";
-import EditGroup from "../../components/about_group/editGroup";
-import PendingPosts from "../../components/about_group/pendingPosts";
-import MemberRequests from "../../components/about_group/memberRequests";
 export default function PageGroup({
   getAllPosts,
   socket,
@@ -103,7 +101,7 @@ export default function PageGroup({
         type: "PAGEGROUP_REQUEST",
       });
       const { data } = await axios.get(
-        `http://35.194.224.95:81/getPageGroup/${idgroup}`,
+        `http://backend-service:8000/getPageGroup/${idgroup}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -115,7 +113,7 @@ export default function PageGroup({
         payload: data,
       });
       const images = await axios.post(
-        `http://35.194.224.95:81/listImages`,
+        `http://backend-service:8000/listImages`,
         { path, sort, max },
         {
           headers: {
@@ -238,7 +236,7 @@ export default function PageGroup({
   };
   const getPost = async (postId, commentId) => {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/getPost/${postId}`,
+      `http://backend-service:8000/getPost/${postId}`,
       {
         headers: {
           Authorization: `Bearer ${user.token}`,

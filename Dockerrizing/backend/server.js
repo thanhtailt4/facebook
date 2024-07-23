@@ -19,7 +19,7 @@ readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
 
 //database
 mongoose
-  .connect("mongodb+srv://vothanhdatbt123:0e0CNzjZ0Gn41OC0@cluster1.9olswgh.mongodb.net/test", {
+  .connect("mongodb+srv://thanhtailt1223:bookshare123@cluster0.06uemnq.mongodb.net/Facebook?retryWrites=true&w=majority", {
     useNewUrlParser: true,
   })
   .then(() => console.log("database connected successfully"))

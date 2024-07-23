@@ -15,7 +15,7 @@ export default function SendEmail({
     try {
       setLoading(true);
       await axios.post(
-        `http://35.194.224.95:81/sendResetPasswordCode`,
+        `http://backend-service:8000/sendResetPasswordCode`,
         { email }
       );
       setError("");

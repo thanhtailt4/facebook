@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
+import axios from "axios";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { HashLoader } from "react-spinners";
-import Bio from "../intro/Bio";
-import { Link } from "react-router-dom";
 import Detail from "./Detail";
-import axios from "axios";
 import DetailAdd from "./DetailAdd";
 export default function AboutContactAndBasicInfo({
   details,
@@ -48,7 +46,7 @@ export default function AboutContactAndBasicInfo({
       console.log(infos);
 
       const { data } = await axios.put(
-        `http://35.194.224.95:81/updateDetails`,
+        `http://backend-service:8000/updateDetails`,
         {
           infos,
         },
@@ -72,7 +70,7 @@ export default function AboutContactAndBasicInfo({
       console.log(infos);
 
       const { data } = await axios.put(
-        `http://35.194.224.95:81/updateDetails`,
+        `http://backend-service:8000/updateDetails`,
         {
           infos,
         },

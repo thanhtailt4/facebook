@@ -1,13 +1,13 @@
+import axios from "axios";
 import { useState } from "react";
 import "./style.css";
-import axios from "axios";
 export default function SendVerification({ user }) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const sendVerificationLink = async () => {
     try {
       const { data } = await axios.post(
-        `http://35.194.224.95:81/sendVerification`,
+        `http://backend-service:8000/sendVerification`,
         {},
         {
           headers: {

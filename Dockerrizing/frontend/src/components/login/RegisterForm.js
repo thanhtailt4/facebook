@@ -1,14 +1,14 @@
+import axios from "axios";
 import { Form, Formik } from "formik";
+import Cookies from "js-cookie";
 import { useState } from "react";
-import RegisterInput from "../inputs/registerInput";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import DotLoader from "react-spinners/DotLoader";
 import * as Yup from "yup";
+import RegisterInput from "../inputs/registerInput";
 import DateOfBirthSelect from "./DateOfBirthSelect";
 import GenderSelect from "./GenderSelect";
-import DotLoader from "react-spinners/DotLoader";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
 export default function RegisterForm({ setVisible , socket}) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -77,7 +77,7 @@ export default function RegisterForm({ setVisible , socket}) {
   const registerSubmit = async () => {
     try {
       const { data } = await axios.post(
-        `http://35.194.224.95:81/register`,
+        `http://backend-service:8000/register`,
         {
           first_name,
           last_name,

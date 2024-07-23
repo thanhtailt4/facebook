@@ -1,28 +1,23 @@
 import axios from "axios";
 import { useEffect, useReducer, useRef, useState } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { profileReducer } from "../../functions/reducers";
-import { friendspage, friendspageByBirthday } from "../../functions/reducers";
+import { useNavigate, useParams } from "react-router-dom";
+import CreatePostPopup from "../../components/createPostPopup";
 import Header from "../../components/header";
-import "./style.css";
+import { profileReducer } from "../../functions/reducers";
 import Cover from "./Cover";
 import ProfielPictureInfos from "./ProfielPictureInfos";
 import ProfileMenu from "./ProfileMenu";
-import Friends from "./tabs/Friends";
-import CreatePostPopup from "../../components/createPostPopup";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import Posts from "./tabs/Posts";
+import "./style.css";
 import About from "./tabs/About";
-import Videos from "./tabs/Videos";
-import Photos from "./tabs/Photos";
 import Check_ins from "./tabs/Check_ins";
 import Detail_Albums from "./tabs/Detail_Albums";
-import {
-  getFriendsPageInfos,
-  getFriendsByBirthday,
-} from "../../functions/user";
+import Friends from "./tabs/Friends";
+import Photos from "./tabs/Photos";
+import Posts from "./tabs/Posts";
+import Videos from "./tabs/Videos";
 
 export default function Profile({
   getAllPosts,
@@ -85,7 +80,7 @@ export default function Profile({
         type: "PROFILE_REQUEST",
       });
       const { data } = await axios.get(
-        `http://35.194.224.95:81/getProfile/${idUser}`,
+        `http://backend-service:8000/getProfile/${idUser}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -98,7 +93,7 @@ export default function Profile({
       } else {
         try {
           const images = await axios.post(
-            `http://35.194.224.95:81/listImages`,
+            `http://backend-service:8000/listImages`,
             { path, sort, max },
             {
               headers: {
@@ -129,7 +124,7 @@ export default function Profile({
 
   const getPost = async (postId, commentId) => {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/getPost/${postId}`,
+      `http://backend-service:8000/getPost/${postId}`,
       {
         headers: {
           Authorization: `Bearer ${user.token}`,

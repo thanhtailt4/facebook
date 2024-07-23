@@ -1,9 +1,8 @@
-import { Form, Formik } from "formik";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import LoginInput from "../../components/inputs/loginInput";
-import * as Yup from "yup";
 import axios from "axios";
+import { Form, Formik } from "formik";
+import { Link } from "react-router-dom";
+import * as Yup from "yup";
+import LoginInput from "../../components/inputs/loginInput";
 export default function SearchAccount({
   email,
   setEmail,
@@ -24,7 +23,7 @@ export default function SearchAccount({
       setLoading(true);
 
       const { data } = await axios.post(
-        `http://35.194.224.95:81/findUser`,
+        `http://backend-service:8000/findUser`,
         { email }
       );
       setUserInfos(data);

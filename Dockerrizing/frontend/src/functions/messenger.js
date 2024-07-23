@@ -3,7 +3,7 @@ import axios from "axios";
 export const sendMessage = async (reseverId, message, image, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/sendMessage`,
+      `http://backend-service:8000/sendMessage`,
       {
         reseverId,
         message,
@@ -24,7 +24,7 @@ export const sendMessage = async (reseverId, message, image, token) => {
 export const getMessages = async (reseverId, token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/getMessages/${reseverId}`,
+      `http://backend-service:8000/getMessages/${reseverId}`,
 
       {
         headers: {
@@ -42,7 +42,7 @@ export const getMessages = async (reseverId, token) => {
 export const sendMessageRoom = async (roommessId, message, image, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/sendMessageRoom`,
+      `http://backend-service:8000/sendMessageRoom`,
       {
         roommessId,
         message,
@@ -63,7 +63,7 @@ export const sendMessageRoom = async (roommessId, message, image, token) => {
 export const getMessagesRoom = async (roommessId, token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/getMessagesRoom/${roommessId}`,
+      `http://backend-service:8000/getMessagesRoom/${roommessId}`,
 
       {
         headers: {

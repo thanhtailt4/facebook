@@ -1,46 +1,34 @@
-import { Link, Routes, Route } from "react-router-dom";
-import Login from "./pages/login";
-import Profile from "./pages/profile";
-import Home from "./pages/home";
-import LoggedInRoutes from "./routes/LoggedInRoutes";
-import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
-import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
-import { useSelector } from "react-redux";
-import Activate from "./pages/home/activate";
-import Reset from "./pages/reset";
-import CreatePostPopup from "./components/createPostPopup";
-import { useEffect, useReducer, useState } from "react";
-import axios from "axios";
-import { postsReducer, notificationsReducer } from "./functions/reducers";
-import Friends from "./pages/friends";
-import io from "socket.io-client";
-import Post from "./components/post";
 import { notification } from "antd";
-import Search from "./pages/search";
+import axios from "axios";
+import { useEffect, useReducer, useState } from "react";
+import Moment from "react-moment";
+import { useSelector } from "react-redux";
+import { Link, Route, Routes } from "react-router-dom";
+import io from "socket.io-client";
+import Chat_screen from "./components/chat";
+import Room_Mess_screen from "./components/chat/RoomMess";
+import CreatePostPopup from "./components/createPostPopup";
+import PhotoPopup from "./components/photoPopup";
 import Post_detail from "./components/post/Post_detail";
 import ReactPopup from "./components/reactPopup";
 import ReactCommentPopup from "./components/reactPopup/reactCommentPopup";
-import Moment from "react-moment";
-import { setRead } from "./functions/notification";
-import { friendspage } from "./functions/reducers";
-import { getFriendsPageInfos } from "./functions/user";
-import PageGroup from "./pages/groups/PageGroup";
-import Groups from "./pages/groups";
-import { getGroupsJoined } from "./functions/user";
-import { getdiscoverGroups } from "./functions/user";
-import { roommess } from "./functions/reducers";
-import Room_Mess_screen from "./components/chat/RoomMess";
 import ReportMenu from "./components/reportMenu";
 import ReportGroupMenu from "./components/reportMenu/reportGroupMenu";
-import {
-  friendspageByBirthday,
-  groupspage,
-  groupdiscoverspage,
-  postgroups,
-} from "./functions/reducers";
-import { getFriendsByBirthday } from "./functions/user";
-import PhotoPopup from "./components/photoPopup";
-import Chat_screen from "./components/chat";
+import { setRead } from "./functions/notification";
+import { friendspage, friendspageByBirthday, groupdiscoverspage, groupspage, notificationsReducer, postgroups, postsReducer, roommess } from "./functions/reducers";
+import { getdiscoverGroups, getFriendsByBirthday, getFriendsPageInfos, getGroupsJoined } from "./functions/user";
+import Friends from "./pages/friends";
+import Groups from "./pages/groups";
+import PageGroup from "./pages/groups/PageGroup";
+import Home from "./pages/home";
+import Activate from "./pages/home/activate";
+import Login from "./pages/login";
+import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
+import Profile from "./pages/profile";
+import Reset from "./pages/reset";
+import Search from "./pages/search";
+import LoggedInRoutes from "./routes/LoggedInRoutes";
+import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
 function App() {
   const [visible, setVisible] = useState(false);
   const [visiblePost, setVisiblePost] = useState(null);
@@ -73,7 +61,7 @@ function App() {
   const [onlineUsers, setOnlineUsers] = useState([]);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:5000", {
+    const newSocket = io("http://socket-service:5000", {
       transports: ["websocket"],
     });
     setSocket(newSocket);
@@ -122,7 +110,7 @@ function App() {
         type: "NOTIFICATIONS_REQUEST",
       });
       const { data } = await axios.get(
-        `http://35.194.224.95:81/getAllNotification`,
+        `http://backend-service:8000/getAllNotification`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -193,7 +181,7 @@ function App() {
   const getRoomMess = async () => {
     try {
       dispatchRoomMess({ type: "ROOM_MESS_REQUEST" });
-      const { data } = await axios.get(`http://35.194.224.95:81/getRoomMess`, {
+      const { data } = await axios.get(`http://backend-service:8000/getRoomMess`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -211,7 +199,7 @@ function App() {
     try {
       dispatchPostGroups({ type: "POST_GROUPS_REQUEST" });
       const { data } = await axios.get(
-        `http://35.194.224.95:81/getpostgroups`,
+        `http://backend-service:8000/getpostgroups`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -373,7 +361,7 @@ function App() {
       dispatch({
         type: "POSTS_REQUEST",
       });
-      const { data } = await axios.get(`http://35.194.224.95:81/getAllposts`, {
+      const { data } = await axios.get(`http://backend-service:8000/getAllposts`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

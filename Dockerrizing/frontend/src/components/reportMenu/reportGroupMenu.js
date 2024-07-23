@@ -1,10 +1,8 @@
 import axios from "axios";
+import { useReducer, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useEffect, useReducer, useState } from "react";
-import SubmitReportGroup from "./submitReportGroup";
 import { submitReportToGroupReducer } from "../../functions/reducers";
+import SubmitReportGroup from "./submitReportGroup";
 export default function ReportGroupMenu({ setReportGroup, reportGroup }) {
   const { user } = useSelector((state) => ({ ...state }));
   const [visible, setVisible] = useState(0);
@@ -26,7 +24,7 @@ export default function ReportGroupMenu({ setReportGroup, reportGroup }) {
     try {
       dispatchReportToGroup({ type: "SUBMIT_REPORT_GROUP_REQUEST" });
       const { data } = await axios.put(
-        `http://localhost:8000/creatReport`,
+        `http://backend-service:8000/creatReport`,
         {
           postRef: reportGroup.postId,
           commentRef: reportGroup.commentId,

@@ -10,7 +10,7 @@ export const creatReport = async (
 ) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/creatReport`,
+      `http://backend-service:8000/creatReport`,
       {
         postRef,
         commentRef,
@@ -33,7 +33,7 @@ export const creatReport = async (
 export const getReportsToGroup = async (idgroup, token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/getReportsToGroup/${idgroup}`,
+      `http://backend-service:8000/getReportsToGroup/${idgroup}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -49,7 +49,7 @@ export const getReportsToGroup = async (idgroup, token) => {
 export const keepReport = async (idreport, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/keepReport`,
+      `http://backend-service:8000/keepReport`,
       { idreport },
       {
         headers: {
@@ -66,7 +66,7 @@ export const keepReport = async (idreport, token) => {
 export const removeReport = async (idreport, postRef, commentRef , token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/removeReport`,
+      `http://backend-service:8000/removeReport`,
       { idreport, postRef  , commentRef},
       {
         headers: {

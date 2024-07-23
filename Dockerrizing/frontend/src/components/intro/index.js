@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import Bio from "./Bio";
-import "./style.css";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Bio from "./Bio";
 import EditDetails from "./EditDetails";
+import "./style.css";
 export default function Intro({ detailss, visitor, setOthername }) {
   const { user } = useSelector((state) => ({ ...state }));
   const [details, setDetails] = useState();
@@ -32,7 +32,7 @@ export default function Intro({ detailss, visitor, setOthername }) {
     try {
       console.log("sent");
       const { data } = await axios.put(
-        `http://35.194.224.95:81/updateDetails`,
+        `http://backend-service:8000/updateDetails`,
         {
           infos,
         },

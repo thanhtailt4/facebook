@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend-image
-          image: gcr.io/macro-topic-406418/frontend-image:57
+          image: gcr.io/eighth-server-430311-v6/frontend-image:latest
           ports:
             - containerPort: 3000
 

@@ -2,7 +2,7 @@ import axios from "axios";
 export const sendRequest = async (groupId, senderId, receiverId, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/sendRequest`,
+      `http://backend-service:8000/sendRequest`,
       {
         groupId,
         senderId,
@@ -23,7 +23,7 @@ export const sendRequest = async (groupId, senderId, receiverId, token) => {
 export const updateGroupCover = async (url, idgroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/updateGroupCover/${idgroup}`,
+      `http://backend-service:8000/updateGroupCover/${idgroup}`,
       {
         url,
       },
@@ -42,7 +42,7 @@ export const updateGroupCover = async (url, idgroup, token) => {
 export const deleteInvite = async (requestId, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/deleteInvite`,
+      `http://backend-service:8000/deleteInvite`,
       { requestId },
       {
         headers: {
@@ -59,7 +59,7 @@ export const deleteInvite = async (requestId, token) => {
 export const acceptInvite = async (idgroup, requestId, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/acceptInvite/${idgroup}`,
+      `http://backend-service:8000/acceptInvite/${idgroup}`,
       { requestId },
       {
         headers: {
@@ -76,7 +76,7 @@ export const acceptInvite = async (idgroup, requestId, token) => {
 export const joingroup = async (idgroup, token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/joingroup/${idgroup}`,
+      `http://backend-service:8000/joingroup/${idgroup}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -92,7 +92,7 @@ export const joingroup = async (idgroup, token) => {
 export const leavegroup = async (idgroup, token) => {
   try {
     const { data } = await axios.get(
-      `http://35.194.224.95:81/leavegroup/${idgroup}`,
+      `http://backend-service:8000/leavegroup/${idgroup}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -108,7 +108,7 @@ export const leavegroup = async (idgroup, token) => {
 export const followgroup = async (idgroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/followgroup/${idgroup}`,
+      `http://backend-service:8000/followgroup/${idgroup}`,
       {},
 
       {
@@ -126,7 +126,7 @@ export const followgroup = async (idgroup, token) => {
 export const unfollowgroup = async (idgroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/unfollowgroup/${idgroup}`,
+      `http://backend-service:8000/unfollowgroup/${idgroup}`,
       {},
 
       {
@@ -152,7 +152,7 @@ export const settingsgroup = async (
 ) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/settingsgroup`,
+      `http://backend-service:8000/settingsgroup`,
       {
         description,
         privacy,
@@ -177,7 +177,7 @@ export const settingsgroup = async (
 export const approveMember = async (idGroup, idUser, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/approveMember`,
+      `http://backend-service:8000/approveMember`,
       {
         idGroup,
         idUser,
@@ -198,7 +198,7 @@ export const approveMember = async (idGroup, idUser, token) => {
 export const declineMember = async (idGroup, idUser, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/declineMember`,
+      `http://backend-service:8000/declineMember`,
       {
         idGroup,
         idUser,
@@ -219,7 +219,7 @@ export const declineMember = async (idGroup, idUser, token) => {
 export const cancelRequestGroup = async (idGroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/cancelRequestGroup`,
+      `http://backend-service:8000/cancelRequestGroup`,
       {
         idGroup,
       },
@@ -239,7 +239,7 @@ export const cancelRequestGroup = async (idGroup, token) => {
 export const pendingposts = async (idGroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/pendingposts`,
+      `http://backend-service:8000/pendingposts`,
       {
         idGroup,
       },
@@ -259,7 +259,7 @@ export const pendingposts = async (idGroup, token) => {
 export const approvependingposts = async (idPost, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/approvependingposts`,
+      `http://backend-service:8000/approvependingposts`,
       {
         idPost,
       },
@@ -279,7 +279,7 @@ export const approvependingposts = async (idPost, token) => {
 export const refusependingposts = async (idPost, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/refusependingposts`,
+      `http://backend-service:8000/refusependingposts`,
       {
         idPost,
       },
@@ -299,7 +299,7 @@ export const refusependingposts = async (idPost, token) => {
 export const removememberingroup = async (idMember, idGroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/removememberingroup`,
+      `http://backend-service:8000/removememberingroup`,
       {
         idMember,
         idGroup,
@@ -320,7 +320,7 @@ export const removememberingroup = async (idMember, idGroup, token) => {
 export const removeasadmin = async (idMember, idGroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/removeasadmin`,
+      `http://backend-service:8000/removeasadmin`,
       {
         idMember,
         idGroup,
@@ -341,7 +341,7 @@ export const removeasadmin = async (idMember, idGroup, token) => {
 export const inviteasadmin = async (idMember, idGroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/inviteasadmin`,
+      `http://backend-service:8000/inviteasadmin`,
       {
         idMember,
         idGroup,
@@ -362,7 +362,7 @@ export const inviteasadmin = async (idMember, idGroup, token) => {
 export const cancelinviteasadmin = async (idMember, idGroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/cancelinviteasadmin`,
+      `http://backend-service:8000/cancelinviteasadmin`,
       {
         idMember,
         idGroup,
@@ -383,7 +383,7 @@ export const cancelinviteasadmin = async (idMember, idGroup, token) => {
 export const acceptinviteasadmin = async (idMember, idGroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/acceptinviteasadmin`,
+      `http://backend-service:8000/acceptinviteasadmin`,
       {
         idMember,
         idGroup,
@@ -404,7 +404,7 @@ export const acceptinviteasadmin = async (idMember, idGroup, token) => {
 export const getusersendinviteasadmin = async (idMember, idGroup, token) => {
   try {
     const { data } = await axios.put(
-      `http://35.194.224.95:81/getusersendinviteasadmin`,
+      `http://backend-service:8000/getusersendinviteasadmin`,
       {
         idMember,
         idGroup,

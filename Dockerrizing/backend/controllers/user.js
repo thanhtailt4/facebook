@@ -70,8 +70,8 @@ exports.register = async (req, res) => {
       { id: user._id.toString() },
       "30m"
     );
-    const url = `http://34.80.88.230/activate/${emailVerificationToken}`;
-    sendVerificationEmail(user.email, user.first_name, url);
+    const url = `http://frontend-service:3000/activate/${emailVerificationToken}`;
+    // sendVerificationEmail(user.email, user.first_name, url);
     const token = generateToken({ id: user._id.toString() }, "7d");
     res.send({
       id: user._id,
@@ -158,8 +158,8 @@ exports.sendVerification = async (req, res) => {
       { id: user._id.toString() },
       "30m"
     );
-    const url = `http://34.80.88.230/activate/${emailVerificationToken}`;
-    sendVerificationEmail(user.email, user.first_name, url);
+    const url = `http://frontend-service:3000/activate/${emailVerificationToken}`;
+    // sendVerificationEmail(user.email, user.first_name, url);
     return res.status(200).json({
       message: "Email verification link has been sent to your email.",
     });
