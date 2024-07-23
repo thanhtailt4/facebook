@@ -77,7 +77,7 @@ export default function RegisterForm({ setVisible , socket}) {
   const registerSubmit = async () => {
     try {
       const { data } = await axios.post(
-        `http://34.124.241.174:81//register`,
+        `http://34.124.241.174:81/register`,
         {
           first_name,
           last_name,

@@ -118,7 +118,7 @@ export default function CreateGroup({ setVisible, dataFriend, socket }) {
   const groupSubmit = async () => {
     try {
       const { data } = await axios.post(
-        `http://34.124.241.174:81//creatGroup`,
+        `http://34.124.241.174:81/creatGroup`,
         {
           group_name,
           privacy,

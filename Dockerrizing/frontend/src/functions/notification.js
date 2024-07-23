@@ -10,7 +10,7 @@ export const createNotification = async (
 ) => {
   try {
     const { data } = await axios.put(
-      `http://34.124.241.174:81//createNotification`,
+      `http://34.124.241.174:81/createNotification`,
       {
         receiverId,
         type,
@@ -34,7 +34,7 @@ export const createNotification = async (
 export const setRead = async (idNotification, token) => {
   try {
     const { data } = await axios.put(
-      `http://34.124.241.174:81//setRead/${idNotification}`,
+      `http://34.124.241.174:81/setRead/${idNotification}`,
       {},
       {
         headers: {

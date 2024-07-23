@@ -32,7 +32,7 @@ export default function Intro({ detailss, visitor, setOthername }) {
     try {
       console.log("sent");
       const { data } = await axios.put(
-        `http://34.124.241.174:81//updateDetails`,
+        `http://34.124.241.174:81/updateDetails`,
         {
           infos,
         },

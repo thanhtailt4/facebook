@@ -101,7 +101,7 @@ export default function PageGroup({
         type: "PAGEGROUP_REQUEST",
       });
       const { data } = await axios.get(
-        `http://34.124.241.174:81//getPageGroup/${idgroup}`,
+        `http://34.124.241.174:81/getPageGroup/${idgroup}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -113,7 +113,7 @@ export default function PageGroup({
         payload: data,
       });
       const images = await axios.post(
-        `http://34.124.241.174:81//listImages`,
+        `http://34.124.241.174:81/listImages`,
         { path, sort, max },
         {
           headers: {
@@ -236,7 +236,7 @@ export default function PageGroup({
   };
   const getPost = async (postId, commentId) => {
     const { data } = await axios.get(
-      `http://34.124.241.174:81//getPost/${postId}`,
+      `http://34.124.241.174:81/getPost/${postId}`,
       {
         headers: {
           Authorization: `Bearer ${user.token}`,

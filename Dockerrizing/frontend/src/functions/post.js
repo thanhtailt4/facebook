@@ -10,7 +10,7 @@ export const createPost = async (
 ) => {
   try {
     const { data } = await axios.post(
-      `http://34.124.241.174:81//createPost`,
+      `http://34.124.241.174:81/createPost`,
       {
         type,
         background,
@@ -33,7 +33,7 @@ export const createPost = async (
 export const reactPost = async (postId, react, token) => {
   try {
     const { data } = await axios.put(
-      `http://34.124.241.174:81//reactPost`,
+      `http://34.124.241.174:81/reactPost`,
       {
         postId,
         react,
@@ -52,7 +52,7 @@ export const reactPost = async (postId, react, token) => {
 export const getReactsPost = async (postId, token) => {
   try {
     const { data } = await axios.get(
-      `http://34.124.241.174:81//getReactsPost/${postId}`,
+      `http://34.124.241.174:81/getReactsPost/${postId}`,
 
       {
         headers: {
@@ -69,7 +69,7 @@ export const getReactsPost = async (postId, token) => {
 export const savePost = async (postId, token) => {
   try {
     const { data } = await axios.put(
-      `http://34.124.241.174:81//savePost/${postId}`,
+      `http://34.124.241.174:81/savePost/${postId}`,
       {},
 
       {
@@ -86,7 +86,7 @@ export const savePost = async (postId, token) => {
 export const deletePost = async (postId, token) => {
   try {
     const { data } = await axios.delete(
-      `http://34.124.241.174:81//deletePost/${postId}`,
+      `http://34.124.241.174:81/deletePost/${postId}`,
 
       {
         headers: {
@@ -103,7 +103,7 @@ export const deletePost = async (postId, token) => {
 export const getPost = async (postId, token) => {
   try {
     const { data } = await axios.get(
-      `http://34.124.241.174:81//getPost/${postId}`,
+      `http://34.124.241.174:81/getPost/${postId}`,
 
       {
         headers: {
@@ -120,7 +120,7 @@ export const getPost = async (postId, token) => {
 export const getPostByUrl = async (url, token) => {
   try {
     const { data } = await axios.post(
-      `http://34.124.241.174:81//getPostByUrl`,
+      `http://34.124.241.174:81/getPostByUrl`,
       {
         url
       },

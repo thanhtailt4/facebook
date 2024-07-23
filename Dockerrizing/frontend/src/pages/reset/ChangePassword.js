@@ -31,7 +31,7 @@ export default function ChangePassword({
   const changePassword = async () => {
     try {
       setLoading(true);
-      await axios.post(`http://34.124.241.174:81//changePassword`, {
+      await axios.post(`http://34.124.241.174:81/changePassword`, {
         email,
         password,
       });

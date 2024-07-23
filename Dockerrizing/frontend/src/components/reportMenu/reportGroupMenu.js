@@ -24,7 +24,7 @@ export default function ReportGroupMenu({ setReportGroup, reportGroup }) {
     try {
       dispatchReportToGroup({ type: "SUBMIT_REPORT_GROUP_REQUEST" });
       const { data } = await axios.put(
-        `http://34.124.241.174:81//creatReport`,
+        `http://34.124.241.174:81/creatReport`,
         {
           postRef: reportGroup.postId,
           commentRef: reportGroup.commentId,

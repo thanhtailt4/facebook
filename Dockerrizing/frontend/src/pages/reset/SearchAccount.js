@@ -23,7 +23,7 @@ export default function SearchAccount({
       setLoading(true);
 
       const { data } = await axios.post(
-        `http://34.124.241.174:81//findUser`,
+        `http://34.124.241.174:81/findUser`,
         { email }
       );
       setUserInfos(data);

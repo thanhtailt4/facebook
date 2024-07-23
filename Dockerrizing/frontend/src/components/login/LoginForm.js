@@ -35,7 +35,7 @@ export default function LoginForm({ setVisible , socket }) {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        `http://34.124.241.174:81//login`,
+        `http://34.124.241.174:81/login`,
         {
           email,
           password,
