@@ -22,7 +22,7 @@ export default function Overview({
     try {
       console.log("sent");
       const { data } = await axios.put(
-        `http://backend-service:8000/updateDetails`,
+        `http://34.124.241.174:81//updateDetails`,
         {
           infos,
         },

@@ -71,7 +71,7 @@ export default function CreateRoomMess({ setVisibleCreatRoomMess,socket, dataPag
   const roommessSubmit = async () => {
     try {
       const { data } = await axios.put(
-        `http://backend-service:8000/creatRoomMess`,
+        `http://34.124.241.174:81//creatRoomMess`,
         {
           room_name,
           groupRef: dataPageGroup._id ,

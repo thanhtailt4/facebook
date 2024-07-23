@@ -46,7 +46,7 @@ export default function AboutContactAndBasicInfo({
       console.log(infos);
 
       const { data } = await axios.put(
-        `http://backend-service:8000/updateDetails`,
+        `http://34.124.241.174:81//updateDetails`,
         {
           infos,
         },
@@ -70,7 +70,7 @@ export default function AboutContactAndBasicInfo({
       console.log(infos);
 
       const { data } = await axios.put(
-        `http://backend-service:8000/updateDetails`,
+        `http://34.124.241.174:81//updateDetails`,
         {
           infos,
         },

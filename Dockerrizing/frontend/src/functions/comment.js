@@ -3,7 +3,7 @@ import axios from "axios";
 export const comment = async (postId, comment, image, token) => {
   try {
     const { data } = await axios.put(
-      `http://backend-service:8000/comment`,
+      `http://34.124.241.174:81//comment`,
       {
         postId,
         comment,
@@ -24,7 +24,7 @@ export const comment = async (postId, comment, image, token) => {
 export const commentInComment = async (commentId, comment, image, token) => {
   try {
     const { data } = await axios.put(
-      `http://backend-service:8000/commentInComment`,
+      `http://34.124.241.174:81//commentInComment`,
       {
         commentId,
         comment,
@@ -45,7 +45,7 @@ export const commentInComment = async (commentId, comment, image, token) => {
 export const getComment = async (postId, token) => {
   try {
     const { data } = await axios.get(
-      `http://backend-service:8000/getComment/${postId}`,
+      `http://34.124.241.174:81//getComment/${postId}`,
 
       {
         headers: {
@@ -63,7 +63,7 @@ export const getComment = async (postId, token) => {
 export const getCommentInComment = async (commentId, token) => {
   try {
     const { data } = await axios.get(
-      `http://backend-service:8000/getCommentInComment/${commentId}`,
+      `http://34.124.241.174:81//getCommentInComment/${commentId}`,
 
       {
         headers: {
@@ -81,7 +81,7 @@ export const getCommentInComment = async (commentId, token) => {
 export const reactComment = async (commentId, react, token) => {
   try {
     const { data } = await axios.put(
-      `http://backend-service:8000/reactComment`,
+      `http://34.124.241.174:81//reactComment`,
       {
         commentId,
         react,
@@ -102,7 +102,7 @@ export const reactComment = async (commentId, react, token) => {
 export const getReactsComment = async (commentId, token) => {
   try {
     const { data } = await axios.get(
-      `http://backend-service:8000/getReactsComment/${commentId}`,
+      `http://34.124.241.174:81//getReactsComment/${commentId}`,
 
       {
         headers: {
@@ -120,7 +120,7 @@ export const getReactsComment = async (commentId, token) => {
 export const getCountCommentInPost = async (postId, token) => {
   try {
     const { data } = await axios.get(
-      `http://backend-service:8000/getCountCommentInPost/${postId}`,
+      `http://34.124.241.174:81//getCountCommentInPost/${postId}`,
 
       {
         headers: {

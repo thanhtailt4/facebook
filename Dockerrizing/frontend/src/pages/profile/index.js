@@ -80,7 +80,7 @@ export default function Profile({
         type: "PROFILE_REQUEST",
       });
       const { data } = await axios.get(
-        `http://backend-service:8000/getProfile/${idUser}`,
+        `http://34.124.241.174:81//getProfile/${idUser}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -93,7 +93,7 @@ export default function Profile({
       } else {
         try {
           const images = await axios.post(
-            `http://backend-service:8000/listImages`,
+            `http://34.124.241.174:81//listImages`,
             { path, sort, max },
             {
               headers: {
@@ -124,7 +124,7 @@ export default function Profile({
 
   const getPost = async (postId, commentId) => {
     const { data } = await axios.get(
-      `http://backend-service:8000/getPost/${postId}`,
+      `http://34.124.241.174:81//getPost/${postId}`,
       {
         headers: {
           Authorization: `Bearer ${user.token}`,

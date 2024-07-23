@@ -24,7 +24,7 @@ export default function CodeVerification({
     try {
       setLoading(true);
       await axios.post(
-        `http://backend-service:8000/validateResetCode`,
+        `http://34.124.241.174:81//validateResetCode`,
         { email, code }
       );
       setVisible(3);
