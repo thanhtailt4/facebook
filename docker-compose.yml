@@ -1,0 +1,34 @@
+version: '3.4'
+
+services:
+  backend:
+    image: backend
+    build:
+      context: Dockerrizing/backend
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8000:8000
+
+  frontend:
+    image: frontend
+    build:
+      context: Dockerrizing/frontend
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    volumes:
+     - ./Dockerrizing/frontend/.env:/app/.env
+
+  socket:
+    image: socket
+    build:
+      context: Dockerrizing/socket
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 5000:5000

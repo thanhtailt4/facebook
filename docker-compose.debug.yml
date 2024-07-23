@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  backend:
+    image: backend
+    build:
+      context: Dockerrizing/backend
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8000:8000
+      - 9229:9229
+    command: [ "node", "--inspect=0.0.0.0:9229", "index.js" ]
+
+  frontend:
+    image: frontend
+    build:
+      context: Dockerrizing/frontend
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3000:3000
+      - 9229:9229
+    command: [ "node", "--inspect=0.0.0.0:9229", "index.js" ]
+
+  socket:
+    image: socket
+    build:
+      context: Dockerrizing/socket
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 5000:5000
+      - 9229:9229
+    command: [ "node", "--inspect=0.0.0.0:9229", "index.js" ]
